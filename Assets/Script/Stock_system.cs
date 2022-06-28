@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fe : MonoBehaviour
+public class Stock_system : MonoBehaviour
 {
     private long GsRetail;
     private long GsRetail_result;
@@ -13,7 +13,7 @@ public class fe : MonoBehaviour
     void Start()
     {
         GsRetail = Mathf.Abs(Random.Range(10, 999999999)*1000000); //999,999,999,000,000
-        GsRetail_result = GsRetail;
+        
         Debug.Log("시작금액" + GsRetail);
     }
 
@@ -30,6 +30,7 @@ public class fe : MonoBehaviour
 
     private void ChangePrice()
     {
+        GsRetail_result = GsRetail;
         resulttime += Time.deltaTime;
         changetime += Time.deltaTime;
         if(changetime > 1)
@@ -43,14 +44,14 @@ public class fe : MonoBehaviour
                 GsRetail_result -= price;
                 Debug.Log("Minus" + price);
             }
-            if(change == 1)
+            else if(change == 1)
             {
                 price = Random.Range(10000, 1000000);
                 GsRetail_result += price;
                 Debug.Log("Plus" + price);
                 
             }
-            if (change == 2)
+            else if (change == 2)
             {
                 
                 Debug.Log(GsRetail_result);
@@ -67,6 +68,9 @@ public class fe : MonoBehaviour
             }
         }
     }
+    
+    
+
 
 
 }
